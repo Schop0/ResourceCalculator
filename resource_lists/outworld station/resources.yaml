@@ -24,6 +24,12 @@ recipe_types:
   Location: Found a new station in {OUT_ITEM} using {IN_ITEMS}
   Objective: Produce {IN_ITEMS} for {OUT_ITEM}
 
+stack_sizes:
+  Stack:
+    quantity_multiplier: 250
+    plural: Stacks
+    extends_from: null
+
 resources:
 
 ###################
@@ -485,6 +491,8 @@ resources:
   Water Ice:
     recipes:
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 500
   Tungsten Ore:
     recipes:
     - recipe_type: Raw Resource
@@ -561,6 +569,8 @@ resources:
       requirements:
         Water Ice: -5
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 1000
   Hydrogen:
     recipes:
     - output: 4
@@ -568,6 +578,8 @@ resources:
       requirements:
         Pure Water: -1
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 1000
   Oxygen:
     recipes:
     - output: 1
@@ -575,6 +587,8 @@ resources:
       requirements:
         Pure Water: -5
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 1000
   Nitrox:
     recipes:
     - output: 1
@@ -745,6 +759,8 @@ resources:
         Reinforced Frames: -4
         Nano Plating: -8
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 50
   Supercomputer:
     recipes:
     - output: 1
@@ -754,6 +770,8 @@ resources:
         Fibre Optics: -24
         Superconductor: -8
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 50
   Micro-Fusion Reactor:
     recipes:
     - output: 1
@@ -764,6 +782,8 @@ resources:
         Superalloy: -12
         Gold: -24
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 50
   Missile Launcher:
     recipes:
     - output: 1
@@ -773,6 +793,8 @@ resources:
         Heavy Frames: -4
         Computers: -3
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 50
   Shield Generator:
     recipes:
     - output: 1
@@ -783,6 +805,8 @@ resources:
         Heavy Frames: -2
         Computers: -1
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 50
 
 ###################
 # Ammo Factory    #
@@ -795,6 +819,8 @@ resources:
         Nitrox: -5
         Molecular Bonding: -2
     - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 500
   Light Missile Ammo:
     recipes:
     - output: 5
