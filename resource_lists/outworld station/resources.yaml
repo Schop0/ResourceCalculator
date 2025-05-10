@@ -588,11 +588,11 @@ resources:
       Stack: 1000
   Hydrogen:
     recipes:
+    - recipe_type: Raw Resource # Prefer mining directly over refining water
     - output: 4
       recipe_type: Refinery
       requirements:
         Pure Water: -1
-    - recipe_type: Raw Resource
     custom_stack_multipliers:
       Stack: 1000
   Oxygen:
