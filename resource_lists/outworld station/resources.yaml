@@ -29,6 +29,21 @@ stack_sizes:
     quantity_multiplier: 250
     plural: Stacks
     extends_from: null
+  Storage Unit:
+    quantity_multiplier: 16
+    note: "4x4 Stacks"
+    plural: Storage Units
+    extends_from: Stack
+  Storage Unit Mk2:
+    quantity_multiplier: 30
+    note: "6x5 Stacks"
+    plural: Storage Units Mk2
+    extends_from: Stack
+  Storage Unit Mk3:
+    quantity_multiplier: 36
+    note: "6x6 Stacks"
+    plural: Storage Units Mk3
+    extends_from: Stack
 
 resources:
 
