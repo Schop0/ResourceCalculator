@@ -16,6 +16,7 @@ recipe_types:
   Fabricator: Assemble {IN_ITEMS} into {OUT_ITEM} in a Fabricator
   Manufactory: Assemble {IN_ITEMS} into {OUT_ITEM} in a Manufactory
   Ammo Factory: Assemble {IN_ITEMS} into {OUT_ITEM} in an Ammo Factory
+  Particle Accelerator: Convert {IN_ITEMS} into {OUT_ITEM} in a Particle Accelerator
   Freighter Dock: Construct {IN_ITEMS} into {OUT_ITEM} in a Freighter Dock
   Small Shipyard: Construct {IN_ITEMS} into {OUT_ITEM} in a Small Shipyard
   Medium Shipyard: Construct {IN_ITEMS} into {OUT_ITEM} in a Medium Shipyard
@@ -263,6 +264,14 @@ resources:
         Composite: -75
         Computers: -20
         Carbon Nanotube: -250
+    - output: 1
+      recipe_type: Drone
+      requirements:
+        Nano Plating: -100
+        Reinforced Frames: -30
+        Composite: -100
+        Computers: -25
+        Carbon Nanotube: -250
     - recipe_type: Raw Resource
   Freighter Mk2:
     recipes:
@@ -281,6 +290,51 @@ resources:
         Reinforced Frames: -25
         Computers: -5
         Small Engine: -5
+    - recipe_type: Raw Resource
+  Freighter Dock Mk3:
+    recipes:
+    - output: 1
+      recipe_type: Upgrade
+      requirements:
+        Freighter Dock Mk2: -1
+        Advanced Plating: -25
+        Heavy Frames: -10
+        Supercomputer: -3
+    - output: 1
+      recipe_type: Drone
+      requirements:
+        Nano Plating: -100
+        Reinforced Frames: -30
+        Composite: -100
+        Computers: -25
+        Carbon Nanotube: -250
+        Advanced Plating: -25
+        Heavy Frames: -10
+        Supercomputer: -3
+    - recipe_type: Raw Resource
+  Freighter Mk3:
+    recipes:
+    - output: 1
+      recipe_type: Upgrade
+      requirements:
+        Freighter Mk2: -1
+        Medium Engine: -2
+        Railgun Turret: -1
+        Supercomputer: -1
+        Advanced Plating: -6
+        Heavy Frames: -2
+    - output: 1
+      recipe_type: Freighter Dock
+      requirements:
+        Hull Plating: -50
+        Reinforced Frames: -25
+        Computers: -5
+        Small Engine: -5
+        Medium Engine: -2
+        Railgun Turret: -1
+        Supercomputer: -1
+        Advanced Plating: -6
+        Heavy Frames: -2
     - recipe_type: Raw Resource
   Defense Turret:
     recipes:
@@ -511,6 +565,12 @@ resources:
   Tungsten Ore:
     recipes:
     - recipe_type: Raw Resource
+  Uranium Ore:
+    recipes:
+    - recipe_type: Raw Resource
+  Exotic Matter:
+    recipes:
+    - recipe_type: Raw Resource
 
   Nitratium:
     recipes:
@@ -560,6 +620,13 @@ resources:
       recipe_type: Smelter
       requirements:
         Tungsten Ore: -2
+    - recipe_type: Raw Resource
+  Uranium:
+    recipes:
+    - output: 1
+      recipe_type: Smelter
+      requirements:
+        Uranium Ore: -2
     - recipe_type: Raw Resource
 
 ###################
@@ -611,6 +678,24 @@ resources:
       requirements:
         Oxygen: -10
         Nitratium: -10
+    - recipe_type: Raw Resource
+  Nitronic Acid:
+    recipes:
+    - output: 1
+      recipe_type: Refinery
+      requirements:
+        Pure Water: -5
+        Nitratium: -5
+    - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 1000
+  Depleted Uranium:
+    recipes:
+    - output: 1
+      recipe_type: Refinery
+      requirements:
+        Nuclear Waste: -1
+        Nitronic Acid: -1
     - recipe_type: Raw Resource
 
 ###################
@@ -810,6 +895,18 @@ resources:
     - recipe_type: Raw Resource
     custom_stack_multipliers:
       Stack: 50
+  Railgun Turret:
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Advanced Plating: -12
+        Heavy Frames: -6
+        Superconductor: -24
+        Computers: -4
+    - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 50
   Shield Generator:
     recipes:
     - output: 1
@@ -822,6 +919,17 @@ resources:
     - recipe_type: Raw Resource
     custom_stack_multipliers:
       Stack: 50
+  Neutron Initiator:
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Uranium: -24
+        Superalloy: -2
+        Gold: -24
+    - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 100
 
 ###################
 # Ammo Factory    #
@@ -846,6 +954,36 @@ resources:
         Basic Frames: -5
         Small Engine: -1
     - recipe_type: Raw Resource
+  Railgun Ammo:
+    recipes:
+    - output: 12
+      recipe_type: Ammo Factory
+      requirements:
+        Depleted Uranium: -1
+        Carbon Nanotube: -5
+    - recipe_type: Raw Resource
+
+########################
+# Particle Accelerator #
+########################
+# Note: variable conversion speed depending on loop length
+# A loop of 190m (occupying a 4x4 area) converts 1/min
+  Antimatter:
+    recipes:
+    - output: 1 # And 1 Nuclear Waste
+      recipe_type: Particle Accelerator
+      requirements:
+        Neutron Initiator: -1
+    - recipe_type: Raw Resource
+  Nuclear Waste:
+    recipes:
+    - output: 1 # And 1 Antimatter
+      recipe_type: Particle Accelerator
+      requirements:
+        Neutron Initiator: -1
+    - recipe_type: Raw Resource
+    custom_stack_multipliers:
+      Stack: 500
 
 ###################
 # Ships           #
@@ -1045,6 +1183,36 @@ resources:
         Stratos Interceptor - Fuelled: -1
         Light Missile Ammo: -4
     - recipe_type: Raw Resource
+  Crusader:
+    recipes:
+    - output: 1
+      recipe_type: Medium Shipyard
+      requirements:
+        Micro-Fusion Reactor: -5
+        Advanced Plating: -100
+        Heavy Frames: -50
+        Supercomputer: -10
+        Medium Engine: -6
+        Railgun Turret: -3
+        Missile Launcher: -2
+    - recipe_type: Raw Resource
+  Crusader - Fuelled:
+    recipes:
+    - output: 1
+      recipe_type: Fuel Depot
+      requirements:
+        Crusader: -1
+        Hydrogen: -2500
+    - recipe_type: Raw Resource
+  Crusader - Fuelled - Armed:
+    recipes:
+    - output: 1
+      recipe_type: Ammo Depot
+      requirements:
+        Crusader - Fuelled: -1
+        Railgun Ammo: -500
+        Light Missile Ammo: -100
+    - recipe_type: Raw Resource
 
 ###################
 # Locations       #
@@ -1130,4 +1298,12 @@ resources:
         Meson Lifter - Fuelled: -50
         Stratos Interceptor - Fuelled - Armed: -250
         Light Missile Ammo: -1000
+    - recipe_type: Raw Resource
+  Station Expansion 11:
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Crusader - Fuelled - Armed: -100
+        Antimatter: -100
     - recipe_type: Raw Resource
