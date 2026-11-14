@@ -4,7 +4,7 @@ authors:
 
 index_page_display_name: Outworld Station
 
-game_version: "0.1.2.0 (Early Access)"
+game_version: "1.2.0.2"
 
 recipe_types:
   Drone: Use {IN_ITEMS} to build {OUT_ITEM}
@@ -16,6 +16,10 @@ recipe_types:
   Fabricator: Assemble {IN_ITEMS} into {OUT_ITEM} in a Fabricator
   Manufactory: Assemble {IN_ITEMS} into {OUT_ITEM} in a Manufactory
   Ammo Factory: Assemble {IN_ITEMS} into {OUT_ITEM} in an Ammo Factory
+  Component Factory: Assemble {IN_ITEMS} into {OUT_ITEM} in a Component Factory
+  Centrifuge: Process {IN_ITEMS} into {OUT_ITEM} in a Centrifuge
+  Particle Accelerator: Convert {IN_ITEMS} into {OUT_ITEM} in a Particle Accelerator
+  Equipment Station: Craft {OUT_ITEM} from {IN_ITEMS} at an Equipment Station
   Freighter Dock: Construct {IN_ITEMS} into {OUT_ITEM} in a Freighter Dock
   Small Shipyard: Construct {IN_ITEMS} into {OUT_ITEM} in a Small Shipyard
   Medium Shipyard: Construct {IN_ITEMS} into {OUT_ITEM} in a Medium Shipyard
@@ -492,6 +496,18 @@ resources:
   - name: Nitratium
     raw_resource: true
 
+  - name: Exotic Matter
+    raw_resource: true
+
+  - name: Nuclear Waste
+    raw_resource: true
+
+  - name: Uranium Ore
+    raw_resource: true
+
+  - name: Neutronium
+    raw_resource: true
+
   ##############################################################################
   - H1: Smelter ################################################################
   ##############################################################################
@@ -502,13 +518,23 @@ resources:
       recipe_type: Smelter
       requirements:
         Titanium Ore: 1
+    - output: 10
+      recipe_type: Smelter
+      requirements:
+        Titanium Ore: 5
+        Carbon Ore: 2
 
-  - name: Carbon
+  - name: Gold
     recipes:
     - output: 1
       recipe_type: Smelter
       requirements:
-        Carbon Ore: 1
+        Gold Ore: 1
+    - output: 10
+      recipe_type: Smelter
+      requirements:
+        Gold Ore: 5
+        Pure Water: 1
 
   - name: Glass Fibre
     recipes:
@@ -517,19 +543,19 @@ resources:
       requirements:
         Silica: 1
 
-  - name: Gold
-    recipes:
-    - output: 1
-      recipe_type: Smelter
-      requirements:
-        Gold Ore: 1
-
   - name: Molecular Bonding
     recipes:
     - output: 3
       recipe_type: Smelter
       requirements:
-        Silica: 1
+        Silica: 2
+
+  - name: Carbon
+    recipes:
+    - output: 1
+      recipe_type: Smelter
+      requirements:
+        Carbon Ore: 1
 
   - name: Tungsten
     recipes:
@@ -537,6 +563,21 @@ resources:
       recipe_type: Smelter
       requirements:
         Tungsten Ore: 2
+
+  - name: Uranium
+    recipes:
+    - output: 1
+      recipe_type: Smelter
+      requirements:
+        Uranium Ore: 2
+    - output: 1
+      recipe_type: Centrifuge
+      requirements:
+        Nuclear Waste: 5
+    - output: 1
+      recipe_type: Centrifuge
+      requirements:
+        Exotic Matter: 2
 
   ##############################################################################
   - H1: Plasma Forge ###########################################################
@@ -547,8 +588,21 @@ resources:
     - output: 1
       recipe_type: Plasma Forge
       requirements:
-        Titanium: 4
-        Tungsten: 4
+        Tungsten: 3
+        Titanium: 3
+    - output: 2
+      recipe_type: Plasma Forge
+      requirements:
+        Tungsten: 2
+        Uranium: 2
+
+  - name: Tungsten Carbide
+    recipes:
+    - output: 1
+      recipe_type: Plasma Forge
+      requirements:
+        Tungsten: 2
+        Carbon: 8
 
   ##############################################################################
   - H1: Refinery ###############################################################
@@ -569,38 +623,47 @@ resources:
       requirements:
         Pure Water: 1
 
-  - name: Oxygen
-    recipes:
-    - output: 1
-      recipe_type: Refinery
-      requirements:
-        Pure Water: 5
-
   - name: Nitrox
     recipes:
-    - output: 1
+    - output: 2
       recipe_type: Refinery
       requirements:
         Oxygen: 10
         Nitratium: 10
 
+  - name: Oxygen
+    recipes:
+    - output: 3
+      recipe_type: Refinery
+      requirements:
+        Pure Water: 5
+
+  - name: Nitronic Acid
+    recipes:
+    - output: 2
+      recipe_type: Refinery
+      requirements:
+        Pure Water: 5
+        Nitratium: 5
+
+  - name: Depleted Uranium
+    recipes:
+    - output: 1
+      recipe_type: Refinery
+      requirements:
+        Nuclear Waste: 1
+        Nitronic Acid: 1
+
   ##############################################################################
   - H1: Matter Printer #########################################################
   ##############################################################################
 
-  - name: Hull Plating
-    recipes:
-    - output: 2
-      recipe_type: Matter Printer
-      requirements:
-        Titanium: 3
-
-  - name: Basic Frames
+  - name: Carbon Nanotube
     recipes:
     - output: 1
       recipe_type: Matter Printer
       requirements:
-        Titanium: 4
+        Carbon: 1
 
   - name: Fibre Optics
     recipes:
@@ -608,6 +671,10 @@ resources:
       recipe_type: Matter Printer
       requirements:
         Glass Fibre: 3
+    - output: 4
+      recipe_type: Matter Printer
+      requirements:
+        Carbon Nanotube: 1
 
   - name: Composite
     recipes:
@@ -618,37 +685,43 @@ resources:
 
   - name: Artificial Diamond
     recipes:
-    - output: 1
+    - output: 2
       recipe_type: Matter Printer
       requirements:
         Carbon: 10
+    - output: 5
+      recipe_type: Matter Printer
+      requirements:
+        Carbon: 4
+        Nitronic Acid: 1
 
-  - name: Carbon Nanotube
+  - name: Hull Plating
+    recipes:
+    - output: 2
+      recipe_type: Matter Printer
+      requirements:
+        Titanium: 3
+    - output: 4
+      recipe_type: Matter Printer
+      requirements:
+        Titanium: 3
+        Composite: 2
+
+  - name: Basic Frames
     recipes:
     - output: 1
       recipe_type: Matter Printer
       requirements:
-        Carbon: 1
+        Titanium: 4
+    - output: 2
+      recipe_type: Matter Printer
+      requirements:
+        Titanium: 4
+        Composite: 2
 
   ##############################################################################
   - H1: Fabricator #############################################################
   ##############################################################################
-
-  - name: Nano Plating
-    recipes:
-    - output: 1
-      recipe_type: Fabricator
-      requirements:
-        Hull Plating: 4
-        Molecular Bonding: 6
-
-  - name: Reinforced Frames
-    recipes:
-    - output: 1
-      recipe_type: Fabricator
-      requirements:
-        Basic Frames: 4
-        Molecular Bonding: 6
 
   - name: Circuit Boards
     recipes:
@@ -657,6 +730,12 @@ resources:
       requirements:
         Fibre Optics: 2
         Gold: 4
+    - output: 6
+      recipe_type: Fabricator
+      requirements:
+        Composite: 2
+        Gold: 2
+        Fibre Optics: 1
 
   - name: Computers
     recipes:
@@ -666,13 +745,33 @@ resources:
         Circuit Boards: 4
         Fibre Optics: 12
 
-  - name: Small Engine
+  - name: Nano Plating
     recipes:
     - output: 1
       recipe_type: Fabricator
       requirements:
         Hull Plating: 4
-        Composite: 8
+        Molecular Bonding: 3
+    - output: 3
+      recipe_type: Fabricator
+      requirements:
+        Hull Plating: 4
+        Molecular Bonding: 3
+        Superalloy: 1
+
+  - name: Reinforced Frames
+    recipes:
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Basic Frames: 4
+        Molecular Bonding: 3
+    - output: 2
+      recipe_type: Fabricator
+      requirements:
+        Basic Frames: 4
+        Molecular Bonding: 3
+        Superalloy: 2
 
   - name: Superconductor
     recipes:
@@ -681,6 +780,40 @@ resources:
       requirements:
         Artificial Diamond: 2
         Fibre Optics: 12
+    - output: 4
+      recipe_type: Fabricator
+      requirements:
+        Quantum Crystals: 1
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Carbon Nanotube: 8
+
+  - name: Small Engine
+    recipes:
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Hull Plating: 4
+        Composite: 8
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Superalloy: 1
+        Composite: 8
+
+  - name: Small Fuel Tank
+    recipes:
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Nano Plating: 6
+        Molecular Bonding: 4
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Superalloy: 2
+        Molecular Bonding: 4
 
   - name: Small Cargo Pod
     recipes:
@@ -689,22 +822,11 @@ resources:
       requirements:
         Composite: 16
         Reinforced Frames: 3
-
-  - name: Small Fuel Tank
-    recipes:
     - output: 1
       recipe_type: Fabricator
       requirements:
-        Nano Plating: 6
-        Molecular Bonding: 8
-
-  - name: Small Aero-Wing
-    recipes:
-    - output: 1
-      recipe_type: Fabricator
-      requirements:
-        Composite: 10
-        Molecular Bonding: 6
+        Superalloy: 2
+        Molecular Bonding: 4
 
   - name: Small Scramjet
     recipes:
@@ -713,6 +835,35 @@ resources:
       requirements:
         Small Engine: 2
         Carbon Nanotube: 25
+
+  - name: Small Aero-Wing
+    recipes:
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Composite: 10
+        Molecular Bonding: 3
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Superalloy: 4
+
+  - name: Stargate Parts
+    recipes:
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Titanium: 5
+        Glass Fibre: 5
+        Gold: 1
+
+  - name: Nano-Tube Cable
+    recipes:
+    - output: 1
+      recipe_type: Fabricator
+      requirements:
+        Carbon Nanotube: 4
+        Artificial Diamond: 1
 
   ##############################################################################
   - H1: Manufactory ############################################################
@@ -724,8 +875,18 @@ resources:
       recipe_type: Manufactory
       requirements:
         Nano Plating: 4
-        Molecular Bonding: 8
+        Molecular Bonding: 4
         Superalloy: 6
+
+  - name: Armour Plating
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Advanced Plating: 2
+        Tungsten Carbide: 4
+        Depleted Uranium: 2
+        Molecular Bonding: 3
 
   - name: Heavy Frames
     recipes:
@@ -733,7 +894,7 @@ resources:
       recipe_type: Manufactory
       requirements:
         Reinforced Frames: 4
-        Molecular Bonding: 8
+        Molecular Bonding: 4
         Superalloy: 12
 
   - name: Medium Engine
@@ -742,18 +903,9 @@ resources:
       recipe_type: Manufactory
       requirements:
         Small Engine: 4
-        Molecular Bonding: 12
+        Molecular Bonding: 6
         Reinforced Frames: 4
         Nano Plating: 8
-
-  - name: Supercomputer
-    recipes:
-    - output: 1
-      recipe_type: Manufactory
-      requirements:
-        Computers: 4
-        Fibre Optics: 24
-        Superconductor: 8
 
   - name: Micro-Fusion Reactor
     recipes:
@@ -765,6 +917,15 @@ resources:
         Superalloy: 12
         Gold: 24
 
+  - name: Supercomputer
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Computers: 4
+        Fibre Optics: 24
+        Superconductor: 8
+
   - name: Missile Launcher
     recipes:
     - output: 1
@@ -773,6 +934,16 @@ resources:
         Advanced Plating: 8
         Heavy Frames: 4
         Computers: 3
+
+  - name: Railgun Turret
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Advanced Plating: 12
+        Heavy Frames: 6
+        Superconductor: 24
+        Computers: 4
 
   - name: Shield Generator
     recipes:
@@ -784,6 +955,44 @@ resources:
         Heavy Frames: 2
         Computers: 1
 
+  - name: Neutron Initiator
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Uranium: 24
+        Superalloy: 2
+        Gold: 24
+
+  - name: Quantum Computer
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Supercomputer: 4
+        Quantum Crystals: 8
+        Artificial Diamond: 32
+        Superalloy: 12
+
+  - name: Sensor Array
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Quantum Crystals: 4
+        Gold: 24
+        Superconductor: 8
+
+  - name: Medium Fuel Tank
+    recipes:
+    - output: 1
+      recipe_type: Manufactory
+      requirements:
+        Small Fuel Tank: 6
+        Molecular Bonding: 5
+        Reinforced Frames: 6
+        Nano Plating: 10
+
   ##############################################################################
   - H1: Ammo Factory ###########################################################
   ##############################################################################
@@ -794,7 +1003,22 @@ resources:
       recipe_type: Ammo Factory
       requirements:
         Nitrox: 5
-        Molecular Bonding: 2
+        Molecular Bonding: 1
+    - output: 4
+      recipe_type: Ammo Factory
+      requirements:
+        Nitrox: 4
+        Uranium: 1
+        Molecular Bonding: 1
+
+  - name: Quantum Warheads
+    recipes:
+    - output: 1
+      recipe_type: Ammo Factory
+      requirements:
+        Warheads: 2
+        Molecular Bonding: 1
+        Quantum Crystals: 1
 
   - name: Light Missile Ammo
     recipes:
@@ -805,6 +1029,189 @@ resources:
         Hull Plating: 10
         Basic Frames: 5
         Small Engine: 1
+
+  - name: Railgun Ammo
+    recipes:
+    - output: 12
+      recipe_type: Ammo Factory
+      requirements:
+        Depleted Uranium: 2
+        Carbon Nanotube: 5
+
+  - name: Quantum Implosion Ammo
+    recipes:
+    - output: 12
+      recipe_type: Ammo Factory
+      requirements:
+        Quantum Warheads: 1
+        Armour Plating: 4
+        Heavy Frames: 2
+        Small Engine: 2
+
+  - name: Small Probe
+    recipes:
+    - output: 2
+      recipe_type: Ammo Factory
+      requirements:
+        Light Missile Ammo: 4
+        Sensor Array: 1
+        Molecular Bonding: 2
+
+  ##############################################################################
+  - H1: Component Factory ######################################################
+  ##############################################################################
+
+  - name: Quantum Destabilizer
+    recipes:
+    - output: 1
+      recipe_type: Component Factory
+      requirements:
+        Railgun Turret: 2
+        Armour Plating: 8
+        Quantum Computer: 2
+        Sensor Array: 4
+
+  - name: Large Engine
+    recipes:
+    - output: 1
+      recipe_type: Component Factory
+      requirements:
+        Medium Engine: 6
+        Superconductor: 12
+        Carbon Nanotube: 24
+        Superalloy: 12
+
+  - name: Micro Antimatter Reactor
+    recipes:
+    - output: 1
+      recipe_type: Component Factory
+      requirements:
+        Micro-Fusion Reactor: 4
+        Quantum Computer: 4
+        Heavy Frames: 12
+        Superalloy: 12
+
+  - name: Arkship Dock Parts
+    recipes:
+    - output: 1
+      recipe_type: Component Factory
+      requirements:
+        Nano Plating: 10
+
+  - name: Science Module
+    recipes:
+    - output: 1
+      recipe_type: Component Factory
+      requirements:
+        Quantum Computer: 8
+        Superalloy: 8
+        Superconductor: 24
+        Sensor Array: 12
+
+  - name: Antimatter Fuel Tank
+    recipes:
+    - output: 1
+      recipe_type: Component Factory
+      requirements:
+        Medium Fuel Tank: 4
+        Molecular Bonding: 6
+        Quantum Computer: 1
+        Armour Plating: 4
+
+  ##############################################################################
+  - H1: Particle Accelerator ###################################################
+  ##############################################################################
+
+  - name: Antimatter
+    recipes:
+    - output: 1
+      recipe_type: Particle Accelerator
+      note: Also outputs 1 Nuclear Waste
+      requirements:
+        Neutron Initiator: 1
+
+  - name: Hyperdrive Fuel
+    recipes:
+    - output: 1
+      recipe_type: Particle Accelerator
+      note: Also outputs 1 Nuclear Waste
+      requirements:
+        Neutronium: 1
+
+  - name: Quantum Crystals
+    recipes:
+    - output: 2
+      recipe_type: Particle Accelerator
+      note: Also outputs 1 Nuclear Waste
+      requirements:
+        Exotic Matter: 2
+
+  ##############################################################################
+  - H1: Equipment Station ######################################################
+  ##############################################################################
+
+  - name: Drone Afterburner
+    recipes:
+    - output: 1
+      recipe_type: Equipment Station
+      requirements:
+        Small Engine: 25
+        Molecular Bonding: 25
+        Basic Frames: 5
+
+  - name: Drone Missile Launcher
+    recipes:
+    - output: 1
+      recipe_type: Equipment Station
+      requirements:
+        Nitrox: 50
+        Small Engine: 25
+
+  - name: Drone Neutron Lazer
+    recipes:
+    - output: 1
+      recipe_type: Equipment Station
+      requirements:
+        Superconductor: 5
+
+  - name: Drone Radiation Filter
+    recipes:
+    - output: 5
+      recipe_type: Equipment Station
+      requirements:
+        Composite: 25
+        Molecular Bonding: 25
+
+  - name: Drone Nano Repair
+    recipes:
+    - output: 1
+      recipe_type: Equipment Station
+      requirements:
+        Artificial Diamond: 10
+
+  - name: Drone Energy Shield
+    recipes:
+    - output: 1
+      recipe_type: Equipment Station
+      requirements:
+        Superconductor: 50
+
+  - name: Drone Micro Drone
+    recipes:
+    - output: 1
+      recipe_type: Equipment Station
+      requirements:
+        Supercomputer: 5
+        Small Engine: 25
+        Superconductor: 25
+
+  - name: Drone Antimatter Lazer
+    recipes:
+    - output: 1
+      recipe_type: Equipment Station
+      requirements:
+        Drone Neutron Lazer: 10
+        Micro-Fusion Reactor: 25
 
   ##############################################################################
   - H1: Ships ##################################################################
