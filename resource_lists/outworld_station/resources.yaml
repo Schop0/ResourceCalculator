@@ -1412,6 +1412,37 @@ resources:
         Stratos Interceptor - Fuelled: 1
         Light Missile Ammo: 4
 
+  - name: Crusader Victor
+    recipes:
+    - output: 1
+      recipe_type: Medium Shipyard
+      requirements:
+        Micro-Fusion Reactor: 5
+        Advanced Plating: 50
+        Heavy Frames: 25
+        Supercomputer: 10
+        Medium Engine: 6
+        Railgun Turret: 3
+        Missile Launcher: 2
+        Shield Generator: 2
+
+  - name: Crusader Victor - Fuelled
+    recipes:
+    - output: 1
+      recipe_type: Fuel Depot
+      requirements:
+        Crusader Victor: 1
+        Hydrogen: 2500
+
+  - name: Crusader Victor - Fuelled - Armed
+    recipes:
+    - output: 1
+      recipe_type: Ammo Depot
+      requirements:
+        Crusader Victor - Fuelled: 1
+        Railgun Ammo: 500
+        Light Missile Ammo: 100
+
   ##############################################################################
   - H1: Locations ##############################################################
   ##############################################################################
@@ -1425,6 +1456,7 @@ resources:
         Reinforced Frames: 25
         Superconductor: 25
         Computers: 10
+        'Mission 0: Complete the Gate': 1
 
   - name: Titania - Low Orbit
     recipes:
@@ -1435,6 +1467,7 @@ resources:
         Reinforced Frames: 25
         Superconductor: 25
         Computers: 10
+        'Mission 4: Scouting Surroundings': 1
 
   - name: Asteroid Belt 2
     recipes:
@@ -1445,6 +1478,7 @@ resources:
         Reinforced Frames: 25
         Superconductor: 25
         Computers: 10
+        'Mission 5: Destination: Titania': 1
 
   - name: Glacialis - Ice Ring
     recipes:
@@ -1455,45 +1489,1001 @@ resources:
         Reinforced Frames: 25
         Superconductor: 25
         Computers: 10
+        'Mission 6: Going Further': 1
+
+  - name: Asteroid Belt 3
+    recipes:
+    - output: 1
+      recipe_type: Location
+      requirements:
+        Nano Plating: 50
+        Reinforced Frames: 25
+        Superconductor: 25
+        Computers: 10
+        'Mission 7: Destination: Glacialis': 1
+
+  - name: Junkyard
+    recipes:
+    - output: 1
+      recipe_type: Location
+      requirements:
+        Nano Plating: 50
+        Reinforced Frames: 25
+        Superconductor: 25
+        Computers: 10
+        'Mission 8: Expansion Protocol': 1
+
+  - name: Helion
+    recipes:
+    - output: 1
+      recipe_type: Location
+      requirements:
+        Nano Plating: 50
+        Reinforced Frames: 25
+        Superconductor: 25
+        Computers: 10
+        'Mission 10: Operation: Junkyard': 1
+
+  - name: Void Horizon
+    recipes:
+    - output: 1
+      recipe_type: Location
+      requirements:
+        Nano Plating: 50
+        Reinforced Frames: 25
+        Superconductor: 25
+        Computers: 10
+        'Mission 11: Arkship Terminal': 1
 
   ##############################################################################
   - H1: Objectives #############################################################
   ##############################################################################
+
+  - name: Station Expansion 1
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Titanium: 100
+        Carbon: 50
+        Gold: 25
+
+  - name: Station Expansion 2
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Hull Plating: 100
+        Basic Frames: 50
+        Composite: 50
+        Fibre Optics: 25
+
+  - name: Station Expansion 3
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 50
+        Reinforced Frames: 25
+        Artificial Diamond: 10
+
+  - name: Station Expansion 4
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 25
+        Aeon Hopper: 5
+
+  - name: Station Expansion 5
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superconductor: 50
+        Aeon Hopper: 10
+        Aeon Courier: 10
+
+  - name: Station Expansion 6
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Carbon Nanotube: 500
+        Photon Light Hauler: 25
 
   - name: Station Expansion 7
     recipes:
     - output: 1
       recipe_type: Objective
       requirements:
-        Photon Tanker - Fuelled: 50
         Nitrox: 100
+        Photon Tanker - Fuelled: 50
 
   - name: Station Expansion 8
     recipes:
     - output: 1
       recipe_type: Objective
       requirements:
+        Superalloy: 500
         Neutron Explorer - Fuelled: 50
         Stratos Shuttle - Fuelled: 100
-        Superalloy: 500
 
   - name: Station Expansion 9
     recipes:
     - output: 1
       recipe_type: Objective
       requirements:
+        Micro-Fusion Reactor: 25
+        Nitrox: 1000
         Meson Heavy Hauler - Fuelled: 25
         Photon Tanker - Fuelled: 100
         Aeon Courier - Fuelled: 250
-        Micro-Fusion Reactor: 25
-        Nitrox: 1000
 
   - name: Station Expansion 10
     recipes:
     - output: 1
       recipe_type: Objective
       requirements:
+        Light Missile Ammo: 1000
         Meson Archer - Fuelled - Armed: 50
         Meson Lifter - Fuelled: 50
         Stratos Interceptor - Fuelled - Armed: 250
-        Light Missile Ammo: 1000
+
+  - name: Station Expansion 11
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Antimatter: 100
+        Crusader Victor - Fuelled - Armed: 100
+
+  - name: 'Arkship Stage 1: Terminal'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        'Mission 10: Operation: Junkyard': 1
+        Station Expansion 11: 1
+
+  - name: 'Arkship Stage 2: Dock'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Armour Plating: 150
+        Heavy Frames: 75
+        Quantum Computer: 15
+        Micro Antimatter Reactor: 5
+        'Mission 11: Arkship Terminal': 1
+
+  - name: 'Arkship Stage 3: Arkship'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Armour Plating: 250
+        Heavy Frames: 100
+        Quantum Computer: 25
+        Micro Antimatter Reactor: 15
+        Large Engine: 12
+        Antimatter Fuel Tank: 8
+        'Mission 12: Arkship Dock': 1
+
+  - name: 'Arkship Stage 4: Fuel'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Hyperdrive Fuel: 500
+        'Mission 13: Complete The Arkship': 1
+
+  - name: 'Mission 0: Complete the Gate'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Stargate Parts: 5
+
+  - name: 'Mission 1: Factory Evaluation'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Hull Plating: 25
+        Basic Frames: 10
+        Composite: 25
+        Fibre Optics: 15
+        Basic Manufacturing: 1
+
+  - name: Basic Manufacturing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Titanium: 50
+        Carbon: 25
+        Gold: 10
+        'Mission 0: Complete the Gate': 1
+
+  - name: 'Mission 2: Deep Space Scanning'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 15
+        Reinforced Frames: 10
+        Artificial Diamond: 5
+        Enhanced Manufacturing: 1
+
+  - name: Enhanced Manufacturing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Hull Plating: 25
+        Basic Frames: 15
+        'Mission 1: Factory Evaluation': 1
+
+  - name: Artifact Scanning
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 5
+        Fibre Optics: 50
+        Artificial Diamond: 5
+        Enhanced Manufacturing: 1
+
+  - name: Energy Storage (Objective)
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Artificial Diamond: 5
+        Molecular Bonding: 25
+        Enhanced Manufacturing: 1
+
+  - name: 'Mission 3: Test Ship Construction'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Basic Ship Construction: 1
+
+  - name: Basic Computing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Gold: 50
+        Fibre Optics: 25
+        'Mission 2: Deep Space Scanning': 1
+
+  - name: Automated Ore Extraction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 10
+        Computers: 3
+        Basic Computing: 1
+
+  - name: Basic Ship Construction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 10
+        Reinforced Frames: 5
+        Computers: 3
+        Basic Computing: 1
+
+  - name: Ship CPU Control
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 10
+        'Mission 2: Deep Space Scanning': 1
+
+  - name: Production Overview
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 5
+        'Mission 2: Deep Space Scanning': 1
+
+  - name: 'Mission 4: Scouting Surroundings'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        'Mission 3: Test Ship Construction': 1
+
+  - name: Superconductors
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Artificial Diamond: 10
+        Fibre Optics: 50
+        'Mission 3: Test Ship Construction': 1
+
+  - name: Automated Logistics
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 25
+        Computers: 10
+        'Mission 3: Test Ship Construction': 1
+
+  - name: Equipment Station
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Circuit Boards: 50
+        Reinforced Frames: 10
+        'Mission 3: Test Ship Construction': 1
+
+  - name: Blueprints
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 25
+        'Mission 3: Test Ship Construction': 1
+
+  - name: Base Defence
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 5
+        Superconductor: 10
+        Superconductors: 1
+
+  - name: Enhanced Storage
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Reinforced Frames: 25
+        'Mission 3: Test Ship Construction': 1
+
+  - name: Nano Repair
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Artificial Diamond: 25
+        Molecular Bonding: 50
+        'Mission 3: Test Ship Construction': 1
+
+  - name: 'Mission 5: Destination: Titania'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Enhanced Ship Construction: 1
+
+  - name: Hydrogen Processing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Composite: 250
+        'Mission 4: Scouting Surroundings': 1
+
+  - name: Enhanced Ship Construction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 50
+        Computers: 25
+        'Mission 4: Scouting Surroundings': 1
+
+  - name: Fusion Technology
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Carbon Nanotube: 50
+        Computers: 10
+        Superconductor: 25
+        Hydrogen Processing: 1
+
+  - name: Starship Transportation
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 25
+        'Mission 4: Scouting Surroundings': 1
+
+  - name: Advanced Power Modules
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superconductor: 25
+        Fibre Optics: 100
+        'Mission 4: Scouting Surroundings': 1
+
+  - name: Energy Shield
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superconductor: 25
+        'Mission 4: Scouting Surroundings': 1
+
+  - name: Fast Travel
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 100
+        Artificial Diamond: 250
+        'Mission 4: Scouting Surroundings': 1
+
+  - name: 'Mission 6: Going Further'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Starship Fuelling: 1
+
+  - name: Portal Technology
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superconductor: 50
+        Computers: 25
+        'Mission 5: Destination: Titania': 1
+
+  - name: Gas Giant Operations
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Small Engine: 50
+        'Mission 5: Destination: Titania': 1
+
+  - name: High Explosives
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nitratium: 50
+        'Mission 5: Destination: Titania': 1
+
+  - name: Starship Fuelling
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Carbon Nanotube: 250
+        'Mission 5: Destination: Titania': 1
+
+  - name: Enhanced Base Machinery
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Reinforced Frames: 50
+        'Mission 5: Destination: Titania': 1
+
+  - name: Enhanced Ore Extraction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 100
+        'Mission 5: Destination: Titania': 1
+
+  - name: Missile Launcher (Objective)
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nitrox: 25
+        Small Engine: 10
+        'Mission 5: Destination: Titania': 1
+
+  - name: 'Mission 7: Destination: Glacialis'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Advanced Ship Construction: 1
+
+  - name: Alloy Production
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nano Plating: 100
+        Reinforced Frames: 50
+        'Mission 6: Going Further': 1
+
+  - name: Advanced Ship Construction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superalloy: 50
+        Reinforced Frames: 50
+        Alloy Production: 1
+
+  - name: Bio-Extractor Objective
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superalloy: 10
+        Nitratium: 100
+        Alloy Production: 1
+
+  - name: Enhanced Logistics
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superalloy: 50
+        Computers: 50
+        Alloy Production: 1
+
+  - name: Expanded Blueprints
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 250
+        'Mission 6: Going Further': 1
+
+  - name: Recycler
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superalloy: 150
+        Molecular Bonding: 500
+        'Mission 6: Going Further': 1
+
+  - name: Alternate Recipe Research
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 500
+        'Mission 6: Going Further': 1
+
+  - name: 'Mission 8: Expansion Protocol'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Heavy Ship Construction: 1
+
+  - name: Advanced Manufacturing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superalloy: 100
+        Nano Plating: 100
+        Reinforced Frames: 50
+        'Mission 7: Destination: Glacialis': 1
+
+  - name: Advanced Computing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Computers: 100
+        Circuit Boards: 250
+        'Mission 7: Destination: Glacialis': 1
+
+  - name: Advanced AI Robotics
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Supercomputer: 50
+        'Mission 7: Destination: Glacialis': 1
+
+  - name: Heavy Ship Construction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Micro-Fusion Reactor: 1
+        Supercomputer: 5
+        Advanced Plating: 25
+        Advanced Manufacturing: 1
+
+  - name: Enhanced Base Defence
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Advanced Plating: 25
+        Supercomputer: 5
+        Advanced Manufacturing: 1
+
+  - name: Advanced Storage
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superalloy: 50
+        Reinforced Frames: 50
+        'Mission 7: Destination: Glacialis': 1
+
+  - name: Defence Micro-Drone
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Supercomputer: 1
+        Small Engine: 5
+        Superconductor: 25
+        'Mission 7: Destination: Glacialis': 1
+
+  - name: Enhanced Hydrogen Facilities
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Carbon Nanotube: 500
+        'Mission 7: Destination: Glacialis': 1
+
+  - name: 'Mission 9: Cerberus Beach-head'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Military Grade Starships: 1
+
+  - name: Basic Ammunition Production
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nitrox: 250
+        'Mission 8: Expansion Protocol': 1
+
+  - name: Military Grade Starships
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Advanced Plating: 100
+        Heavy Frames: 50
+        Light Missile Ammo: 100
+        Basic Ammunition Production: 1
+
+  - name: Advanced Ore Extraction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Advanced Plating: 100
+        'Mission 8: Expansion Protocol': 1
+
+  - name: Advanced Fuelling
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Advanced Plating: 100
+        Carbon Nanotube: 1000
+        'Mission 8: Expansion Protocol': 1
+
+  - name: Advanced Logistics
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superalloy: 250
+        Supercomputer: 5
+        'Mission 8: Expansion Protocol': 1
+
+  - name: Advanced Base Machinery
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Heavy Frames: 50
+        'Mission 8: Expansion Protocol': 1
+
+  - name: 'Mission 10: Operation: Junkyard'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Antimatter: 100
+        Enhanced Military Starships: 1
+
+  - name: Uranium Processing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Uranium Ore: 250
+        'Mission 9: Cerberus Beach-head': 1
+
+  - name: High Energy Physics
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Supercomputer: 25
+        Micro-Fusion Reactor: 5
+        'Mission 9: Cerberus Beach-head': 1
+
+  - name: Antimatter Power Generation
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Neutron Initiator: 25
+        Antimatter: 50
+        High Energy Physics: 1
+
+  - name: Nuclear Waste Processing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Nuclear Waste: 100
+        High Energy Physics: 1
+
+  - name: Enhanced Military Starships
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Light Missile Ammo: 500
+        'Mission 9: Cerberus Beach-head': 1
+
+  - name: Radiation Protection
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Composite: 100
+        'Mission 9: Cerberus Beach-head': 1
+
+  - name: Unstable Element Containment
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Neutron Initiator: 10
+        High Energy Physics: 1
+
+  - name: Force-Field Technology
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Supercomputer: 25
+        Superconductor: 100
+        'Mission 9: Cerberus Beach-head': 1
+
+  - name: 'Mission 11: Arkship Terminal'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Quantum Physics: 1
+        'Arkship Stage 1: Terminal': 1
+
+  - name: Quantum Physics
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Exotic Matter: 25
+        'Mission 10: Operation: Junkyard': 1
+
+  - name: Advanced Portals
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superconductor: 100
+        Supercomputer: 10
+        Micro-Fusion Reactor: 2
+        'Mission 10: Operation: Junkyard': 1
+
+  - name: Quantum Rift Extraction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Sensor Array: 25
+        Quantum Physics: 1
+
+  - name: Quantum Storage
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Quantum Crystals: 25
+        Quantum Physics: 1
+
+  - name: Centrifuge Technology
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Quantum Computer: 5
+        Neutron Initiator: 25
+        Quantum Physics: 1
+
+  - name: Enhanced Alloy Production
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Superalloy: 250
+        Quantum Physics: 1
+
+  - name: Mk 3 Bio Extractor
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Advanced Plating: 100
+        'Mission 10: Operation: Junkyard': 1
+
+  - name: 'Mission 12: Arkship Dock'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        'Arkship Stage 2: Dock': 1
+
+  - name: Armoured Materials
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Tungsten: 1000
+        Carbon: 10000
+        'Mission 11: Arkship Terminal': 1
+
+  - name: Component Factory
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Medium Engine: 250
+        Medium Fuel Tank: 100
+        'Mission 11: Arkship Terminal': 1
+
+  - name: Large Ship Construction
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Armour Plating: 250
+        Sensor Array: 50
+        Armoured Materials: 1
+
+  - name: Large Starship Transportation
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Supercomputer: 250
+        'Mission 11: Arkship Terminal': 1
+
+  - name: Exoplanet Ops
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Heavy Frames: 1000
+        'Mission 11: Arkship Terminal': 1
+
+  - name: Advanced Fluid Transport
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Tungsten Carbide: 250
+        Armoured Materials: 1
+
+  - name: Antimatter Fuelling
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Tungsten Carbide: 500
+        Antimatter: 100
+        Armoured Materials: 1
+
+  - name: Enhanced Manufactory
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Armour Plating: 25
+        Advanced Plating: 100
+        Heavy Frames: 50
+        'Mission 11: Arkship Terminal': 1
+
+  - name: 'Mission 13: Complete The Arkship'
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Neutronium: 10
+        Battlecruisers: 1
+        'Arkship Stage 3: Arkship': 1
+
+  - name: Space Elevator
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Carbon Nanotube: 1000
+        'Mission 12: Arkship Dock': 1
+
+  - name: Quantum Destabilization
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Quantum Crystals: 100
+        'Mission 12: Arkship Dock': 1
+
+  - name: Battlecruisers
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Armour Plating: 250
+        Quantum Warheads: 100
+        Quantum Destabilization: 1
+
+  - name: Magnetic Accelerator
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Quantum Implosion Ammo: 100
+        Quantum Destabilization: 1
+
+  - name: Neutronium Processing
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Neutronium: 50
+        Magnetic Accelerator: 1
+
+  - name: Antimatter Lazer
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        Antimatter: 50
+        Micro-Fusion Reactor: 25
+        'Mission 12: Arkship Dock': 1
+
+  - name: Launch The Arkship
+    recipes:
+    - output: 1
+      recipe_type: Objective
+      requirements:
+        'Arkship Stage 4: Fuel': 1
